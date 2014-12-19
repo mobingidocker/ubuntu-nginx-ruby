@@ -39,6 +39,7 @@ ADD nginx.conf /opt/nginx/conf/nginx.conf
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY config /config
+COPY sudoers /etc/sudoers
 
 COPY Gemfile /root/bootstrapgems/Gemfile
 
