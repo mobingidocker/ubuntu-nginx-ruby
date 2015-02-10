@@ -4,7 +4,7 @@ MAINTAINER david.siaw@mobingi.com
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 RUN apt-get update
-RUN apt-get install -y supervisor
+RUN apt-get install -y supervisor git
 RUN mkdir -p /var/log/supervisor
 
 RUN apt-get install -y openssh-server
