@@ -46,7 +46,5 @@ COPY Gemfile /root/bootstrapgems/Gemfile
 ADD run.sh /run.sh
 RUN chmod 755 /*.sh
 
-RUN /bin/bash -l -c 'cd /root/bootstrapgems && bundle install'
-
 EXPOSE 22 80
 CMD ["/run.sh"]
