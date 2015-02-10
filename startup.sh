@@ -20,8 +20,8 @@ chmod 666 log/production.log
 chown -R www-data:www-data /srv/rails/app/log/
 
 echo "Running bundler..."
-bundle install 2>&1 > /var/log/bundler.log
+bundle install 2>&1 >> /var/log/bundler.log
 
 echo "Migrate database"
-bundle exec rake db:migrate RAILS_ENV="production" 2>&1 > /var/log/migration.log
+bundle exec rake db:migrate RAILS_ENV="production" 2>&1 >> /var/log/migration.log
 /usr/bin/supervisord
