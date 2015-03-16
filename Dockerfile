@@ -24,6 +24,7 @@ COPY sudoers /etc/sudoers
 COPY Gemfile /root/bootstrapgems/Gemfile
 
 ADD run.sh /run.sh
+ADD startup.sh /startup.sh
 RUN chmod 755 /*.sh
 
 EXPOSE 22 80

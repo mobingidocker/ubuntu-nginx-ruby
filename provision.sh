@@ -8,7 +8,7 @@ mkdir -p /var/log/supervisor
 apt-get install -y openssh-server
 mkdir -p /var/run/sshd
 
-apt-get install -y nginx nginx-extras nodejs
+apt-get install -y nodejs
 
 apt-get install -y ruby rails libcurl4-openssl-dev libsqlite3-dev
 
