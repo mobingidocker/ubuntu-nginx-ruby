@@ -12,8 +12,7 @@ ADD provision.sh /provision.sh
 RUN bash /provision.sh
 
 # nginx config
-RUN mkdir -p /var/log/nginx/
-ADD nginx.conf /opt/nginx/conf/nginx.conf
+RUN ln -s /opt/nginx/logs/ /var/log/nginx/
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY config /config
