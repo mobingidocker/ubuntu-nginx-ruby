@@ -24,4 +24,5 @@ bundle install 2>&1 >> /var/log/bundler.log
 
 echo "Migrate database"
 bundle exec rake db:migrate RAILS_ENV="production" 2>&1 >> /var/log/migration.log
+
 /usr/bin/supervisord
