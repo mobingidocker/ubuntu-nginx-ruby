@@ -15,8 +15,6 @@ RUN bash /provision.sh
 RUN mkdir -p /var/log/nginx/
 ADD nginx.conf /opt/nginx/conf/nginx.conf
 
-RUN service nginx restart
-
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY config /config
 COPY sudoers /etc/sudoers
