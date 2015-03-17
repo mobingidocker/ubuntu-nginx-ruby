@@ -8,8 +8,8 @@ ADD provision.sh /provision.sh
 RUN bash /provision.sh
 
 # nginx config
-RUN mkdir /var/log/nginx/
-RUN ln -s /opt/nginx/logs/ /var/log/nginx/
+RUN mkdir -p /var/log/nginx/
+RUN ln -s /var/log/nginx /opt/nginx/logs
 
 RUN echo daemon off\; >> /opt/nginx/conf/nginx.conf
 
