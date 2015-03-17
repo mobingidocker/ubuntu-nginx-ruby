@@ -9,6 +9,7 @@ RUN bash /provision.sh
 
 # nginx config
 RUN mkdir -p /var/log/nginx/
+RUN rm -rf /opt/nginx/logs
 RUN ln -s /var/log/nginx /opt/nginx/logs
 
 RUN echo daemon off\; >> /opt/nginx/conf/nginx.conf
