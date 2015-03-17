@@ -15,14 +15,6 @@ apt-get install -y ruby rails libcurl4-openssl-dev libsqlite3-dev
 #Install rbenv
 git clone git://github.com/sstephenson/rbenv.git /usr/local/rbenv
 
-rbenv install 2.1.0
-
-gem install bundler
-
-rbenv global 2.1.0
-gem install passenger 
-passenger-install-nginx-module
-
 # Add rbenv to the path:
 echo '# rbenv setup' > /etc/profile.d/rbenv.sh
 echo 'export RBENV_ROOT=/usr/local/rbenv' >> /etc/profile.d/rbenv.sh
@@ -38,3 +30,11 @@ pushd /tmp
   cd ruby-build
   ./install.sh
 popd
+
+rbenv install 2.1.0
+
+gem install bundler
+
+rbenv global 2.1.0
+gem install passenger 
+passenger-install-nginx-module
