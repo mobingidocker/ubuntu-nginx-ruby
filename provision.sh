@@ -33,8 +33,8 @@ popd
 
 rbenv install 2.1.0
 
-gem install bundler
-
 rbenv global 2.1.0
 gem install passenger 
 passenger-install-nginx-module
+
+gem install bundler
