@@ -12,6 +12,8 @@ RUN mkdir -p /var/log/nginx/
 RUN rm -rf /opt/nginx/logs
 RUN ln -s /var/log/nginx /opt/nginx/logs
 
+ADD configure_nginx.rb /configure_nginx.rb
+RUN ruby /configure_nginx.rb
 RUN echo daemon off\; >> /opt/nginx/conf/nginx.conf
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
