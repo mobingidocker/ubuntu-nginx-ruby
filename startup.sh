@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source /etc/profile.d/rbenv.sh
+
 echo "Create Rails Directory"
 mkdir -p /srv/rails
 cp -r /srv/code /srv/rails/app

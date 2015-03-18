@@ -4,6 +4,7 @@
 
 lines = []
 config = false
+once = false
 
 text=File.open('/opt/nginx/conf/nginx.conf').read
 text.gsub!(/\r\n?/, "\n")
@@ -18,9 +19,13 @@ text.each_line do |line|
 			config = true
 
 			lines << line
-			lines << "            passenger_enabled on;"
-			lines << "            rails_env production;"
-			lines << "            root /srv/rails/app/public;"
+
+			if !once
+				lines << "            passenger_enabled on;"
+				lines << "            rails_env production;"
+				lines << "            root /srv/rails/app/public;"
+				once = true
+			end
 		end
 	end
 
