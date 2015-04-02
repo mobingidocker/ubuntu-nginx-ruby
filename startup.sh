@@ -10,6 +10,9 @@ rbenv rehash
 echo "Ruby Version:"
 ruby -v
 
+echo "Running init script"
+bash /tmp/init/init.sh
+
 echo "Create Rails Directory"
 mkdir -p /srv/rails
 cp -r /srv/code /srv/rails/app
