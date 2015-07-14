@@ -36,8 +36,8 @@ echo "Running bundler..."
 bundle install 2>&1 >> /var/log/bundler.log
 
 echo "Migrate database"
-bundle exec rake db:migrate RAILS_ENV="production" 2>&1 >> /var/log/migration.log
-bundle exec rake assets:precompile RAILS_ENV="production" 2>&1 >> /var/log/migration.log
+bundle exec rake db:migrate 2>&1 >> /var/log/migration.log
+bundle exec rake assets:precompile 2>&1 >> /var/log/migration.log
 
 echo "complete" > /var/log/container_status
 
