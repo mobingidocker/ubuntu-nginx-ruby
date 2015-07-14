@@ -22,7 +22,6 @@ text.each_line do |line|
 
 			if !once
 				lines << "            passenger_enabled on;"
-				lines << "            rails_env production;"
 				lines << "            root /srv/rails/app/public;"
 				once = true
 			end
