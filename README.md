@@ -1,5 +1,5 @@
 
 # ubuntu-nginx-ruby
 
-This file corresponds to the ruby version jruby-1.7.16
+This file corresponds to the ruby version rbx-2.2.10
 
