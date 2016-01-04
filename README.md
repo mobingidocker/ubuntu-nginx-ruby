@@ -1,5 +1,5 @@
 
 # ubuntu-nginx-ruby
 
-This file corresponds to the ruby version ruby-2.0.0
+This file corresponds to the ruby version ruby-2.1.3
 
