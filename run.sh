@@ -1,3 +1,3 @@
 #!/bin/bash
 
-bash /startup.sh 2>&1 >> /var/log/startup.log
+bash /startup.sh |& tee /var/log/startup.log

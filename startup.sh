@@ -1,11 +1,6 @@
 #!/bin/bash
 
-source /etc/profile.d/rbenv.sh
-
 echo "installing" > /var/log/container_status
-
-echo "Ruby Rehash"
-rbenv rehash
 
 echo "Ruby Version:"
 ruby -v
@@ -33,11 +28,11 @@ chmod 666 log/production.log
 chown -R www-data:www-data /srv/rails/app/log/
 
 echo "Running bundler..."
-bundle install 2>&1 >> /var/log/bundler.log
+bundle install 2>&1 | tee /var/log/bundler.log
 
 echo "Migrate database"
-bundle exec rake db:migrate 2>&1 >> /var/log/migration.log
-bundle exec rake assets:precompile 2>&1 >> /var/log/migration.log
+bundle exec rake db:migrate 2>&1 | tee /var/log/migration.log
+bundle exec rake assets:precompile 2>&1 | tee /var/log/migration.log
 
 echo "complete" > /var/log/container_status
 

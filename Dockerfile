@@ -5,26 +5,18 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 ADD provision.sh /provision.sh
 
-RUN bash /provision.sh
-
-# nginx config
-RUN mkdir -p /var/log/nginx/
-RUN rm -rf /opt/nginx/logs
-RUN ln -s /var/log/nginx /opt/nginx/logs
-
 ADD configure_nginx.rb /configure_nginx.rb
-RUN ruby /configure_nginx.rb
-RUN echo daemon off\; >> /opt/nginx/conf/nginx.conf
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY config /config
 COPY sudoers /etc/sudoers
 
-COPY Gemfile /root/bootstrapgems/Gemfile
+RUN bash /provision.sh
 
 ADD run.sh /run.sh
 ADD startup.sh /startup.sh
+
 RUN chmod 755 /*.sh
 
-EXPOSE 22 80
+EXPOSE 80
 CMD ["/run.sh"]
