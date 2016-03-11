@@ -1,5 +1,5 @@
 
 # ubuntu-nginx-ruby
 
-This file corresponds to the ruby version rbx-2.2.10
+This file corresponds to the ruby version maglev-1.0.0
 
