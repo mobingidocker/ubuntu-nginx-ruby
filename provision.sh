@@ -12,7 +12,7 @@ tar -xzf ruby-install-0.5.0.tar.gz
 pushd ruby-install-0.5.0/ 
 	make install
 popd
-/usr/local/bin/ruby-install --system ruby 2.1.0 -- --disable-install-rdoc
+/usr/local/bin/ruby-install --system ruby 2.2.0 -- --disable-install-rdoc
 export PATH=$PATH:/usr/local/bin
 which ruby
 
