@@ -12,7 +12,7 @@ tar -xzf ruby-install-0.5.0.tar.gz
 pushd ruby-install-0.5.0/ 
 	make install
 popd
-/usr/local/bin/ruby-install --system ruby 2.3.0 -- --disable-install-rdoc
+/usr/local/bin/ruby-install --system jruby 1.7.16 -- --disable-install-rdoc
 export PATH=$PATH:/usr/local/bin
 which ruby
 
@@ -32,6 +32,6 @@ rm -rf /opt/nginx/logs
 ln -s /var/log/nginx /opt/nginx/logs
 
 ruby /configure_nginx.rb
-echo daemon off; >> /opt/nginx/conf/nginx.conf
+echo daemon off\; >> /opt/nginx/conf/nginx.conf
 
 gem install bundler
