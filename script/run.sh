@@ -1,5 +1,7 @@
 #!/bin/bash
 
+exec > >(tee /var/log/startup.log) 2>&1
+
 echo "installing" > /var/log/container_status
 
 echo "Ruby Version:"
@@ -28,12 +30,14 @@ chmod 666 log/production.log
 chown -R www-data:www-data /srv/rails/app/log/
 
 echo "Running bundler..."
-bundle install 2>&1 | tee /var/log/bundler.log
+bundle install --deployment -j4 --without development:test
 
 echo "Migrate database"
-bundle exec rake db:migrate 2>&1 | tee /var/log/migration.log
-bundle exec rake assets:precompile 2>&1 | tee /var/log/migration.log
+bundle exec rake db:migrate RAILS_ENV="production"
+bundle exec rake assets:precompile RAILS_ENV="production"
 
 echo "complete" > /var/log/container_status
 
-/usr/bin/supervisord
+mkdir /var/log/supervisor
+
+exec /usr/bin/supervisord
